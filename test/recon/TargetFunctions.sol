@@ -10,7 +10,9 @@ import {vm} from "@chimera/Hevm.sol";
 abstract contract TargetFunctions is BaseTargetFunctions, Properties, BeforeAfter {
 
     function counter_increment() public {
-      counter.increment();
+      try counter.increment() {} catch {
+        t(false, "Counter increment failed");
+      }
     }
 
     function counter_setNumber(uint64 newNumber) public {

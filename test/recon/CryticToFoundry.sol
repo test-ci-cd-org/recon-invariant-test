@@ -14,5 +14,8 @@ contract CryticToFoundry is Test, TargetFunctions, FoundryAsserts {
 
     function testDemo() public {
         // TODO: Given any target function and foundry assert, test your results
+        counter_setNumber(18446744073709551615);
+        counter_increment();
+
     }
 }
